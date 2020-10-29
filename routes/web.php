@@ -32,7 +32,9 @@ Route::get('/admin', 'AdminController@index');
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/home', 'HomeController@index')
+          ->name('home')
+          ->middleware('auth');
 
 Auth::routes();
 
@@ -56,3 +58,12 @@ Route::post('/add', 'AdminController@add');
 
 //Route::get('/admin','SearchController@index');
 Route::get('/search','AdminController@search');
+
+Route::get('data','DataController@index')->name('data');
+Route::post('data','DataController@store')->name('csv-store');
+Route::get('/datasearch','DataController@search');
+
+Route::post('/contact', 'FooterController@store');
+
+Route::get('/messages', 'MessageController@index');
+Route::get('delete/{id}','MessageController@destroy');

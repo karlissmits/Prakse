@@ -12,13 +12,15 @@ class AdminController extends Controller
 {
     public function index()
     {
-        $users = DB::select('SELECT * FROM users');
+      $users = User::orderBy('created_at','asc')-> paginate(20);
+
+        //$users = DB::select('SELECT * FROM users');
         $id = \Auth::user();
          if ($id->role_id==1){
-        return view('admin')->with ('users', $users);
+        return view('admin')->with('users',$users);
         }
 
-
+return redirect('/home')->with('success', 'You have no permision!');
 
     }
 

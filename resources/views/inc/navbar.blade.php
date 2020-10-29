@@ -1,8 +1,8 @@
 
 
 
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
-            <div class="container">
+        <nav class=" fground navbar navbar-expand-md navbar-light bg-white shadow-sm ">
+            <div class="container ">
                 <a class="navbar-brand" href="{{ url('/') }}">
                     {{ config('app.name', 'Laravel') }}
                 </a>
@@ -76,6 +76,8 @@
 
                           @if (Auth::user()->role_id==1)
                                 <li><a class="dropdown-item" href="/admin">Admin Panel</a></li>
+                                <li><a class="dropdown-item" href="/data">Data</a></li>
+                                <li><a class="dropdown-item" href="/messages">Messages</a></li>
                           @endif
 </a>
                         @endguest

@@ -5,11 +5,6 @@
 <h1>This is Admin Panel</h1>
 
 
-
-
-
-
-
 <td><a href = '/add' class="btn btn-primary">Add User</a></td>
 <input type="text" class="form-controller" id="search" name="search"></input>
 <table class="table table-striped">
@@ -36,10 +31,11 @@
                                 <td><a href = 'delete/{{ $user->id }}' onclick="return myFunction() "class="btn btn-danger">Delete</a></td>
                             </tr>
                        @endforeach
-</tbody>
+                     </tbody>
 
 
                     </table>
+
 
                     <script type="text/javascript">
 
