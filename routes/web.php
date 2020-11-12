@@ -47,8 +47,6 @@ Route::post('edit/{id}','AdminController@edit');
 
 Auth::routes();
 
-Route::get('delete/{id}','AdminController@destroy');
-
 Route::get('/home', 'HomeController@index')->name('home');
 
 
@@ -67,3 +65,27 @@ Route::post('/contact', 'FooterController@store');
 
 Route::get('/messages', 'MessageController@index');
 Route::get('delete/{id}','MessageController@destroy');
+
+Route::get('/lietvardi', 'LietvardiController@index');
+Route::get('/lietvardi/pievienot','LietvardiController@show');
+Route::post('/lietvardi/pievienot','LietvardiController@add');
+Route::post('/lietvardi/rediget/{id}','LietvardiController@edit');
+Route::get('/lietvardi/rediget/{id}','LietvardiController@show2');
+Route::get('/jaunie/delete/{id}','LietvardiController@destroy');
+
+Route::get('/jaunie','LietvardiController@show3');
+Route::get('/jaunie/apstiprinat/{id}','LietvardiController@apstiprinat');
+Route::get('/lietvsearch','LietvardiController@search');
+Route::get('/sort','LietvardiController@status');
+
+
+Route::get('/darbibasvardi', 'DarbibasvController@index');
+Route::get('/darbibasvardi/pievienot','DarbibasvController@show');
+Route::post('/darbibasvardi/pievienot','DarbibasvController@add');
+Route::post('/darbibasvardi/rediget/{id}','DarbibasvController@edit');
+Route::get('/darbibasvardi/rediget/{id}','DarbibasvController@show2');
+Route::get('/darbibasvardi/delete/{id}','DarbibasvController@destroy');
+
+Route::get('/jauniedv','DarbibasvController@show3');
+Route::get('/jauniedv/apstiprinat/{id}','DarbibasvController@apstiprinat');
+Route::get('/lietvsearch','LietvardiController@search');

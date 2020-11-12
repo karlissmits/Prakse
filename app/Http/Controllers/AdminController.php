@@ -29,6 +29,8 @@ return redirect('/home')->with('success', 'You have no permision!');
         $users = DB::select('select * from users where id = ?',[$id]);
         return view('users_update',['users'=>$users]);
     }
+
+
     public function edit(Request $request,$id) {
 
       $this->validate($request, ['email' => ['required', 'string', 'email', 'max:255'], 'name' => ['required','string', 'max:255'], 'password' => ['required', 'string', 'min:8','confirmed']]);
@@ -38,8 +40,6 @@ return redirect('/home')->with('success', 'You have no permision!');
         $password = $request->input('password');
         $passwordh = Hash::make($password);
         $role_id = $request->input('role_id');
-
-
 
     DB::update('update users set name=?,email=?,password=?,role_id=? where id = ?',[$name,$email,$passwordh,$role_id,$id]);
     $users = DB::select('SELECT * FROM users');

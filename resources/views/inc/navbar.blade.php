@@ -4,7 +4,7 @@
         <nav class=" fground navbar navbar-expand-md navbar-light bg-white shadow-sm ">
             <div class="container ">
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ config('app.name', 'Laravel') }}
+                    Latvju valoda
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
@@ -64,6 +64,11 @@
                                                      document.getElementById('logout-form').submit();">
                                         {{ __('Logout') }}
                                                    <a class="dropdown-item" href="/dashboard">Dashboard</a>
+                                                   @if (Auth::user()->role_id==1)
+                                                         <a class="dropdown-item" href="/admin">Admin Panel</a>
+                                                         <a class="dropdown-item" href="/data">Data</a>
+                                                        <a class="dropdown-item" href="/messages">Messages</a>
+                                                   @endif
 
 
 
@@ -73,15 +78,37 @@
                                     </form>
                                 </div>
                             </li>
+                             @if (Auth::user()->role_id==1)
+                              <a class="dropdown-item" href="/jaunie">Jaunie vardi</a>
+                              <a class="dropdown-item" href="/jauniedv">Jaunie darbibas vardi</a>
 
-                          @if (Auth::user()->role_id==1)
-                                <li><a class="dropdown-item" href="/admin">Admin Panel</a></li>
-                                <li><a class="dropdown-item" href="/data">Data</a></li>
-                                <li><a class="dropdown-item" href="/messages">Messages</a></li>
-                          @endif
+
+                              @endif
 </a>
                         @endguest
                     </ul>
                 </div>
             </div>
         </nav>
+
+        <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <style>
+        body {
+          font-family: "Lato", sans-serif;
+        }
+
+        </style>
+        </head>
+        <body>
+
+        <div class="leftnav">
+          <li><a href="/lietvardi">Lietvardi</a></li>
+        <li><a href="/darbibasvardi">Darbibas vardi</a></li>
+        <li><a href="#">Ipasibas vardi</a></li>
+        <li><a href="#">izteicieni</a></li>
+        <li><a href="#">Saukli</a></li>
+        <li><a href="#">Pamazinatas forma</a></li>
+        </div>
+
+        </body>

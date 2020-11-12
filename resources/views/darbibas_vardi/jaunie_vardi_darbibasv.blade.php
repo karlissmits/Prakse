@@ -2,38 +2,38 @@
 
 @section('content')
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
-<h1>This is Admin Panel</h1>
+<h1>Darbibas vardi</h1>
 
 
-<td><a href = '/add' class="btn btn-primary">Add User</a></td>
-<input type="text" class="form-controller" id="search" name="search"></input>
+<td><a href = '/darbibasv/pievienot' class="btn btn-primary">Pievienot darbibas vardu</a></td>
+<input type="text" class="form-controller" id="search" placeholder="meklet" name="search"></input>
+<h3>Neapstiprinatie vardi</h3>
 <table class="table table-striped">
   <thead>
                         <tr>
-                            <th>Users</th>
-                           <th>Name</th>
-                            <th>E-mail</th>
-                            <th>Password</th>
-                            <th>Role</th>
+                            <th>ID</th>
+                           <th>Darbibas vards</th>
+                            <th>Pievienots</th>
+                            <th>Pievienoja</th>
 
                         </tr>
                       </thead>
                       <tbody class="seit">
-                        @foreach($users as $user)
+                        @foreach($darbibasv as $dv)
+                         @if($dv->apstiprinats_id==0)
                             <tr>
-                                <td>{{$user->id}}</td>
-                                <td>{{$user->name}}</td>
-                                <td>{{$user->email}}</td>
-                                <td>{{$user->password}}</td>
-                                <td>{{$user->role_id}}</td>
+                                <td>{{$dv->id}}</td>
+                                <td>{{$dv->darbibasv}}</td>
+                                <td>{{$dv->created_at}}</td>
+                                <td>{{$dv->user}}</td>
 
-                                <td><a href = 'edit/{{ $user->id }}' class="btn btn-secondary">Edit</a></td>
-                                <td><a href = 'delete/{{ $user->id }}' onclick="return myFunction() "class="btn btn-danger">Delete</a></td>
+                                <td><a href = '/jauniedv/apstiprinat/{{ $dv->id }}' class="btn btn-secondary">Apstiprinat</a></td>
+                                <td><a href = '/darbibasv/delete/{{ $dv->id }}' onclick="return myFunction() "class="btn btn-danger">Dzest</a></td>
                             </tr>
+                            @endif
                        @endforeach
                      </tbody>
                     </table>
-
 
                     <script type="text/javascript">
 

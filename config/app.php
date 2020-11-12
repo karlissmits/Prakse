@@ -164,6 +164,7 @@ return [
         Collective\Html\HtmlServiceProvider::class,
          Maatwebsite\Excel\ExcelServiceProvider::class,
          Barryvdh\Debugbar\ServiceProvider::class,
+        
 
         /*
          * Package Service Providers...
@@ -233,6 +234,7 @@ return [
         'Html' => Collective\Html\HtmlFacade::class,
         'Calendar' => MaddHatter\LaravelFullcalendar\Facades\Calendar::class,
         'Excel' => Maatwebsite\Excel\Facades\Excel::class,
+        'Input' => Illuminate\Support\Facades\Input::class,
 
 
 
